@@ -1,19 +1,21 @@
 <template>
-  <div class="login-container">
-    <h2>로그인</h2>
-    <form @submit.prevent="handleLogin">
-      <div>
-        <label for="username">사용자 이름:</label>
-        <input v-model="username" type="text" id="username" required />
-      </div>
-      <div>
-        <label for="password">비밀번호:</label>
-        <input v-model="password" type="password" id="password" required />
-      </div>
-      <button type="submit">로그인</button>
-      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-    </form>
-  </div>
+  <main>
+    <div class="login-container">
+      <h2>Singin</h2>
+      <form @submit.prevent="handleLogin">
+        <div>
+          <label for="username">Id</label>
+          <input v-model="username" type="text" id="username" required />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input v-model="password" type="password" id="password" required />
+        </div>
+        <button type="submit">로그인</button>
+        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      </form>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -53,6 +55,13 @@ export default defineComponent({
 </script>
 
 <style>
+main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 .login-container {
   width: 100%;
 }
