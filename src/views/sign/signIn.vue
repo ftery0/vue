@@ -39,7 +39,12 @@
                   </button>
                 </p>
                 <p>
-                  new account? <strong class="etc_sign_button">SIGNUP</strong>
+                  new account?
+                  <router-link to="/sign-up"
+                    ><strong class="etc_sign_button"
+                      >Sign Up</strong
+                    ></router-link
+                  >
                 </p>
               </div>
             </div>
@@ -165,20 +170,24 @@ form {
           vertical-align: baseline;
           outline: transparent solid 2px;
           outline-offset: 2px;
-          line-height: var(--chakra-lineHeights-normal);
+          line-height: var(--InterestExistence-lineHeights-normal);
           border-radius: 0px;
-          font-weight: var(--chakra-fontWeights-semibold);
-          transition-property: var(--chakra-transition-property-common);
-          transition-duration: var(--chakra-transition-duration-normal);
+          font-weight: var(--InterestExistence-fontWeights-semibold);
+          transition-property: var(
+            --InterestExistence-transition-property-common
+          );
+          transition-duration: var(
+            --InterestExistence-transition-duration-normal
+          );
           width: fit-content;
-          font-family: var(--chakra-fonts-brand-arialNarrowBold);
+          font-family: var(--InterestExistence-fonts-brand-arialNarrowBold);
           text-transform: uppercase;
           font-size: 13.5px;
           font-stretch: normal;
           height: auto;
-          min-width: var(--chakra-sizes-10);
-          padding-inline-start: var(--chakra-space-4);
-          padding-inline-end: var(--chakra-space-4);
+          min-width: var(--InterestExistence-sizes-10);
+          padding-inline-start: var(--InterestExistence-space-4);
+          padding-inline-end: var(--InterestExistence-space-4);
           color: inherit;
           border-bottom-width: 1px;
           border-bottom-style: dashed;
@@ -186,9 +195,15 @@ form {
           padding: 0px !important;
         }
         .etc_sign_button {
-          transition-property: var(--chakra-transition-property-common);
-          transition-duration: var(--chakra-transition-duration-fast);
-          transition-timing-function: var(--chakra-transition-easing-ease-out);
+          transition-property: var(
+            --InterestExistence-transition-property-common
+          );
+          transition-duration: var(
+            --InterestExistence-transition-duration-fast
+          );
+          transition-timing-function: var(
+            --InterestExistence-transition-easing-ease-out
+          );
           cursor: pointer;
           text-decoration: none;
           outline: transparent solid 2px;
@@ -197,9 +212,9 @@ form {
           border-bottom-width: 1px;
           border-bottom-style: dashed;
           border-color: inherit;
-          font-family: var(--chakra-fonts-brand-arialNarrowBold);
+          font-family: var(--InterestExistence-fonts-brand-arialNarrowBold);
           font-size: 13.5px;
-          font-weight: var(--chakra-fontWeights-bold);
+          font-weight: var(--InterestExistence-fontWeights-bold);
           line-height: 110%;
           text-transform: uppercase;
         }
@@ -226,8 +241,12 @@ form {
         outline-offset: 2px;
         line-height: 100%;
         border-radius: 0px;
-        transition-property: var(--chakra-transition-property-common);
-        transition-duration: var(--chakra-transition-duration-normal);
+        transition-property: var(
+          --InterestExistence-transition-property-common
+        );
+        transition-duration: var(
+          --InterestExistence-transition-duration-normal
+        );
         width: fit-content;
         padding: 8px;
         font-family: Ranchers;
@@ -237,8 +256,8 @@ form {
         line-height: normal;
         text-transform: uppercase;
         font-stretch: normal;
-        height: var(--chakra-sizes-10);
-        min-width: var(--chakra-sizes-10);
+        height: var(--InterestExistence-sizes-10);
+        min-width: var(--InterestExistence-sizes-10);
         padding-inline-start: 1rem;
         padding-inline-end: 1rem;
         color: $staticWhite;
@@ -269,20 +288,20 @@ form {
       outline-offset: 2px;
       position: relative;
       appearance: none;
-      transition-property: var(--chakra-transition-property-common);
-      transition-duration: var(--chakra-transition-duration-normal);
-      font-weight: var(--chakra-fontWeights-normal);
+      transition-property: var(--InterestExistence-transition-property-common);
+      transition-duration: var(--InterestExistence-transition-duration-normal);
+      font-weight: var(--InterestExistence-fontWeights-normal);
       border-width: 1px;
       border-style: solid;
       border-image: initial;
-      border-color: var(--chakra-colors-brand-main);
+      border-color: var(--InterestExistence-colors-brand-main);
       line-height: 100%;
-      --input-font-size: var(--chakra-fontSizes-md);
-      --input-padding: var(--chakra-space-4);
-      --input-border-radius: var(--chakra-radii-md);
-      --input-height: var(--chakra-sizes-10);
+      --input-font-size: var(--InterestExistence-fontSizes-md);
+      --input-padding: var(--InterestExistence-space-4);
+      --input-border-radius: var(--InterestExistence-radii-md);
+      --input-height: var(--InterestExistence-sizes-10);
       background: inherit;
-      color: var(--chakra-colors-brand-main);
+      color: var(--InterestExistence-colors-brand-main);
       font-size: 16px;
     }
   }
