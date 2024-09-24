@@ -1,90 +1,60 @@
 <template>
-  <main class="main">
-    <div class="main_box">
-      <div class="login-container">
-        <form @submit.prevent="handleLogin">
-          <div class="login_view">
-            <h2>Singin</h2>
-            <div>
-              <div class="input_box">
-                <div class="form-control">
-                  <input
-                    v-model="username"
-                    placeholder="Id"
-                    type="text"
-                    id="username"
-                    required
-                  />
-                </div>
-                <div class="form-control">
-                  <input
-                    v-model="password"
-                    placeholder="Password"
-                    type="password"
-                    id="password"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="login_bottom">
-              <div class="submit_button_div">
-                <button type="submit" class="submit_button">login</button>
-              </div>
-              <div class="etc_div">
-                <p>
-                  lost your
-                  <button type="submit" class="etc_lost_button">
-                    account?
-                  </button>
-                </p>
-                <p>
-                  new account?
-                  <router-link to="/sign-up"
-                    ><strong class="etc_sign_button"
-                      >Sign Up</strong
-                    ></router-link
-                  >
-                </p>
-              </div>
-            </div>
+  <form @submit.prevent="handleLogin">
+    <div class="login_view">
+      <h2>Find Email</h2>
+      <div>
+        <div class="input_box">
+          <div class="form-control">
+            <input
+              v-model="email"
+              placeholder="emil"
+              type="text"
+              id="email"
+              required
+            />
           </div>
-        </form>
+        </div>
+      </div>
+      <div class="login_bottom">
+        <div class="submit_button_div">
+          <button type="submit" class="submit_button">Submit</button>
+          <button type="submit" class="submit_button_code">Code</button>
+        </div>
+        <div class="etc_div">
+          <p>
+            Back to
+            <strong @click="$emit('backToSignIn')">Sign In</strong>
+          </p>
+          <p>
+            new account?
+            <router-link to="/sign-up"
+              ><strong class="etc_sign_button">Sign Up</strong></router-link
+            >
+          </p>
+        </div>
       </div>
     </div>
-  </main>
+  </form>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
 import axios from "axios";
-
 export default defineComponent({
-  name: "SignInView",
+  name: "authHomeView",
   setup() {
-    const username = ref("");
-    const password = ref("");
-    const errorMessage = ref("");
-
+    const email = ref("");
     const handleLogin = async () => {
       try {
-        const response = await axios.post("/auth/sign", {
-          username: username.value,
-          password: password.value,
+        await axios.post("/auth/find-email", {
+          email: email,
         });
-
-        if (response.status === 200) {
-          window.location.href = "/";
-        }
       } catch (error) {
-        errorMessage.value = "로그인 실패. 다시 시도해 주세요.";
+        console.log(error);
       }
     };
-
     return {
-      username,
-      password,
-      errorMessage,
+      email,
       handleLogin,
     };
   },
@@ -92,52 +62,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "../../style/color.scss";
+@import "@/style/color.scss";
 
-.main {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
-  min-height: 100vh;
-  -webkit-box-pack: center;
-  justify-content: center;
-  align-items: flex-start;
-}
-.main_box {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.login-container {
-  border-width: 1px;
-  border-style: dotted;
-  border-image: initial;
-  border-color: $baseColor;
-  margin: 50px 10px 10px;
-  padding: 24px;
-  width: 100%;
-  max-width: 400px;
-}
-@media screen and (min-width: 48em) {
-  .login-container {
-    padding: 48px;
-  }
-}
-@media screen and (min-width: 30em) {
-  .login-container {
-    margin-top: 100px;
-  }
-}
 form {
   border-width: 0px;
   border-style: solid;
   box-sizing: border-box;
   overflow-wrap: break-word;
 }
-
 .login_view {
   display: flex;
   flex-direction: column;
@@ -226,6 +158,44 @@ form {
       align-items: center;
       flex-direction: row;
       gap: 6px;
+      .submit_button_code {
+        display: inline-flex;
+        appearance: none;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        user-select: none;
+        position: relative;
+        white-space: nowrap;
+        vertical-align: middle;
+        outline: transparent solid 2px;
+        outline-offset: 2px;
+        line-height: 100%;
+        border-radius: 0px;
+        transition-property: var(
+          --InterestExistence-transition-property-common
+        );
+        transition-duration: var(
+          --InterestExistence-transition-duration-normal
+        );
+        width: fit-content;
+        padding: 8px;
+        font-size: 13.5px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+        font-stretch: normal;
+        height: var(--InterestExistence-sizes-10);
+        min-width: var(--InterestExistence-sizes-10);
+        padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
+        background-color: var(--InterestExistence-colors-white);
+        color: var(--InterestExistence-colors-brand-logoColor);
+        border: 1px solid var(--InterestExistence-colors-brand-logoColor);
+        cursor: pointer;
+      }
       .submit_button {
         display: inline-flex;
         appearance: none;
@@ -249,7 +219,6 @@ form {
         );
         width: fit-content;
         padding: 8px;
-        font-family: Ranchers;
         font-size: 13.5px;
         font-style: normal;
         font-weight: 400;
