@@ -1,11 +1,13 @@
-<template>
-  <div>
-    <h1>Home</h1>
-  </div>
-</template>
-
 <script>
+import SidBar from "../../components/sidebar/sidBar.vue";
 export default {
   name: "HomeView",
+  components: {
+    SidBar,
+  },
 };
 </script>
+
+<template>
+  <SidBar />
+</template>

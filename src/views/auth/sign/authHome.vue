@@ -3,7 +3,6 @@ import { ref } from "vue";
 import SignIn from "./signIn.vue";
 import LostAccount from "./lostAccount/lostAccount.vue";
 
-// 상태 관리
 const isSignIn = ref(true);
 
 const switchToLostAccount = () => {
