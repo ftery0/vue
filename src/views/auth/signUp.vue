@@ -75,20 +75,20 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-import axios from "axios";
+import { defineComponent, ref } from 'vue';
+import axios from 'axios';
 
 export default defineComponent({
-  name: "SignUpView",
+  name: 'SignUpView',
   setup() {
-    const email = ref("");
-    const username = ref("");
-    const password = ref("");
-    const confirmPassword = ref("");
+    const email = ref('');
+    const username = ref('');
+    const password = ref('');
+    const confirmPassword = ref('');
 
     const handleSignUp = async () => {
       try {
-        const response = await axios.post("/auth/sign-up", {
+        const response = await axios.post('/auth/sign-up', {
           username: username.value,
           password: password.value,
           email: email.value,
@@ -96,7 +96,7 @@ export default defineComponent({
         });
 
         if (response.status === 200) {
-          window.location.href = "/sign-in";
+          window.location.href = '/sign-in';
         }
       } catch (error) {
         console.log(error);
@@ -115,7 +115,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "../../style/color.scss";
+@import '../../style/color.scss';
 
 .sign-container {
   border: 1px dotted $baseColor;

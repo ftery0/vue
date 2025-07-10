@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from "vue";
-import SignIn from "./signIn.vue";
-import LostAccount from "./lostAccount/lostAccount.vue";
+import { ref } from 'vue';
+import SignIn from './signIn.vue';
+import LostAccount from './lostAccount/lostAccount.vue';
 
 const isSignIn = ref(true);
 
@@ -25,7 +25,7 @@ const switchToSignIn = () => {
   </main>
 </template>
 <style lang="scss">
-@import "../../../style/color.scss";
+@import '../../../style/color.scss';
 .main {
   display: flex;
   width: 100%;

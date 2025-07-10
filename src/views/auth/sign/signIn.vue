@@ -46,28 +46,28 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-import axios from "axios";
+import { defineComponent, ref } from 'vue';
+import axios from 'axios';
 
 export default defineComponent({
-  name: "SignInView",
+  name: 'SignInView',
   setup() {
-    const username = ref("");
-    const password = ref("");
-    const errorMessage = ref("");
+    const username = ref('');
+    const password = ref('');
+    const errorMessage = ref('');
 
     const handleLogin = async () => {
       try {
-        const response = await axios.post("/auth/sign", {
+        const response = await axios.post('/auth/sign', {
           username: username.value,
           password: password.value,
         });
 
         if (response.status === 200) {
-          window.location.href = "/";
+          window.location.href = '/';
         }
       } catch (error) {
-        errorMessage.value = "로그인 실패. 다시 시도해 주세요.";
+        errorMessage.value = '로그인 실패. 다시 시도해 주세요.';
       }
     };
 
@@ -82,7 +82,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "../../../style/color.scss";
+@import '../../../style/color.scss';
 
 .container {
   border-width: 1px;

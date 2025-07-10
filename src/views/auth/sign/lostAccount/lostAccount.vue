@@ -38,15 +38,15 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-import axios from "axios";
+import { defineComponent, ref } from 'vue';
+import axios from 'axios';
 export default defineComponent({
-  name: "authHomeView",
+  name: 'authHomeView',
   setup() {
-    const email = ref("");
+    const email = ref('');
     const handleLogin = async () => {
       try {
-        await axios.post("/auth/find-email", {
+        await axios.post('/auth/find-email', {
           email: email,
         });
       } catch (error) {
@@ -62,7 +62,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "@/style/color.scss";
+@import '@/style/color.scss';
 
 form {
   border-width: 0px;

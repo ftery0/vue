@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
-    <router-view />
+  <div :class="layout">
+    <Header @toggleSidebar="toggleSidebar" />
+    <Sidebar ref="sidebarRef" />
+    <div v-if="showSidebar" :class="overlay" @click="toggleSidebar"></div>
+    <main :class="content">
+      <router-view />
+    </main>
   </div>
 </template>
 
-<script>
-export default {
-  name: "App",
-};
-</script>
+<script lang="ts" src="./App.script.ts"></script>
