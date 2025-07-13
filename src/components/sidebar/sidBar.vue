@@ -12,6 +12,11 @@
     </div>
     <div class="sidebar_box">
       <router-link to="/profile">
+        <p>best post</p>
+      </router-link>
+    </div>
+    <div class="sidebar_box">
+      <router-link to="/profile">
         <p>Profile</p>
       </router-link>
     </div>

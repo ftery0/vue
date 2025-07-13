@@ -10,9 +10,6 @@ export const layout = css`
 export const content = css`  
   flex: 1;
   margin-left: 315px;
-  @media (max-width: 1280px) {
-    margin-left: 0;
-  }
 `;
 
 export const overlay = css`
