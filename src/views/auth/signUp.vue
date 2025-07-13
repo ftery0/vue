@@ -1,29 +1,38 @@
 <template>
-  <main class="main">
-    <div class="sign-container">
-      <form @submit.prevent="handleSignUp">
-        <div class="signup_view">
+  <main :class="main">
+    <div :class="sign_container">
+      <form @submit.prevent="handleRegister">
+        <div :class="signup_view">
           <h2>SignUp</h2>
-          <div class="input_box">
-            <div class="form-control">
+          <div :class="input_box">
+            <div :class="form_control">
               <input
                 v-model="email"
                 placeholder="email"
-                type="text"
+                type="email"
                 id="email"
                 required
               />
             </div>
-            <div class="form-control">
+            <div :class="form_control">
               <input
-                v-model="username"
-                placeholder="username"
+                v-model="userId"
+                placeholder="userId"
                 type="text"
-                id="username"
+                id="userId"
                 required
               />
             </div>
-            <div class="form-control">
+            <div :class="form_control">
+              <input
+                v-model="name"
+                placeholder="name"
+                type="text"
+                id="name"
+                required
+              />
+            </div>
+            <div :class="form_control">
               <input
                 v-model="password"
                 placeholder="Password"
@@ -32,7 +41,7 @@
                 required
               />
             </div>
-            <div class="form-control">
+            <div :class="form_control">
               <input
                 v-model="confirmPassword"
                 placeholder="Confirm Password"
@@ -42,30 +51,34 @@
               />
             </div>
           </div>
-          <div class="signup_bottom">
+          <div :class="signup_bottom">
             <p>
               By clicking Join, you agree to our
               <router-link to="/terms">Terms</router-link> and
               <router-link to="/privacy">Privacy</router-link>
               conditions.
             </p>
-            <div class="submit_button_div">
-              <button type="submit" class="submit_button">Sign Up</button>
+            <div :class="submit_button_div">
+              <button
+                type="submit"
+                :class="submit_button"
+                :disabled="isLoading || !isPasswordMatch"
+              >
+                {{ isLoading ? '가입 중...' : 'Sign Up' }}
+              </button>
             </div>
 
             <p>
               Already signed up?
-              <router-link to="/sign-in"
-                ><strong class="etc_sign_button">Signin</strong></router-link
-              >
+              <router-link to="/sign-in">
+                <strong :class="etc_sign_button">Signin</strong>
+              </router-link>
             </p>
             <p>
               Curious?
-              <router-link to="/learn-more"
-                ><strong class="etc_sign_button"
-                  >Learn more</strong
-                ></router-link
-              >
+              <router-link to="/learn-more">
+                <strong :class="etc_sign_button">Learn more</strong>
+              </router-link>
             </p>
           </div>
         </div>
@@ -74,45 +87,7 @@
   </main>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
-import axios from 'axios';
-
-export default defineComponent({
-  name: 'SignUpView',
-  setup() {
-    const email = ref('');
-    const username = ref('');
-    const password = ref('');
-    const confirmPassword = ref('');
-
-    const handleSignUp = async () => {
-      try {
-        const response = await axios.post('/auth/sign-up', {
-          username: username.value,
-          password: password.value,
-          email: email.value,
-          confirmPassword: confirmPassword.value,
-        });
-
-        if (response.status === 200) {
-          window.location.href = '/sign-in';
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    return {
-      username,
-      password,
-      email,
-      confirmPassword,
-      handleSignUp,
-    };
-  },
-});
-</script>
+<script lang="ts" src="./signUp.script.ts"></script>
 
 <style lang="scss">
 @import '../../style/color.scss';

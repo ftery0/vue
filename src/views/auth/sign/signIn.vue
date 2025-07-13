@@ -1,19 +1,19 @@
 <template>
-  <form @submit.prevent="handleLogin">
-    <div class="login_view">
-      <h2>Singin</h2>
-      <div>
-        <div class="input_box">
-          <div class="form-control">
+  <div :class="container">
+    <form @submit.prevent="handleLogin">
+      <div :class="login_view">
+        <h2>Singin</h2>
+        <div :class="input_box">
+          <div :class="form_control">
             <input
-              v-model="username"
+              v-model="userId"
               placeholder="Id"
               type="text"
               id="username"
               required
             />
           </div>
-          <div class="form-control">
+          <div :class="form_control">
             <input
               v-model="password"
               placeholder="Password"
@@ -23,63 +23,33 @@
             />
           </div>
         </div>
-      </div>
-      <div class="login_bottom">
-        <div class="submit_button_div">
-          <button type="submit" class="submit_button">login</button>
+        <div :class="login_bottom">
+          <div :class="submit_button_div">
+            <button type="submit" :class="submit_button" :disabled="isLoading">
+              {{ isLoading ? '로그인 중...' : 'login' }}
+            </button>
+          </div>
+          <div :class="etc_div">
+            <p>
+              lost your
+              <strong @click="$emit('lostAccount')" :class="etc_sign_button">
+                account?
+              </strong>
+            </p>
+            <p>
+              new account?
+              <router-link to="/sign-up">
+                <strong :class="etc_sign_button">Sign Up</strong>
+              </router-link>
+            </p>
+          </div>
         </div>
-        <div class="etc_div">
-          <p>
-            lost your
-            <strong @click="$emit('lostAccount')"> account? </strong>
-          </p>
-          <p>
-            new account?
-            <router-link to="/sign-up"
-              ><strong class="etc_sign_button">Sign Up</strong></router-link
-            >
-          </p>
-        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
-import axios from 'axios';
-
-export default defineComponent({
-  name: 'SignInView',
-  setup() {
-    const username = ref('');
-    const password = ref('');
-    const errorMessage = ref('');
-
-    const handleLogin = async () => {
-      try {
-        const response = await axios.post('/auth/sign', {
-          username: username.value,
-          password: password.value,
-        });
-
-        if (response.status === 200) {
-          window.location.href = '/';
-        }
-      } catch (error) {
-        errorMessage.value = '로그인 실패. 다시 시도해 주세요.';
-      }
-    };
-
-    return {
-      username,
-      password,
-      errorMessage,
-      handleLogin,
-    };
-  },
-});
-</script>
+<script lang="ts" src="./signIn.script.ts"></script>
 
 <style lang="scss">
 @import '../../../style/color.scss';
