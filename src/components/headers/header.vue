@@ -46,6 +46,7 @@ export default defineComponent({
   font-size: 24px;
   background: none;
   border: none;
+  cursor: pointer;
 }
 .chat-icon {
   font-size: 20px;

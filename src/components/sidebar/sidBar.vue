@@ -6,19 +6,19 @@
     ]"
   >
     <div class="logo_box">
-      <router-link to="/">
+      <a href="/">
         <div>로고</div>
-      </router-link>
+      </a>
     </div>
     <div class="sidebar_box">
-      <router-link to="/profile">
+      <a href="/best-post">
         <p>best post</p>
-      </router-link>
+      </a>
     </div>
     <div class="sidebar_box">
-      <router-link to="/profile">
+      <a href="/profile">
         <p>Profile</p>
-      </router-link>
+      </a>
     </div>
   </aside>
 

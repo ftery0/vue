@@ -8,8 +8,9 @@ export const layout = css`
 `;
 
 export const content = css`  
-  flex: 1;
-  margin-left: 315px;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export const overlay = css`
