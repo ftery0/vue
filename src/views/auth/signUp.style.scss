@@ -1,45 +1,41 @@
-import { css } from '@emotion/css';
+@import '../../style/color.scss';
 
-export const container = css`
-  border-width: 1px;
-  border-style: dotted;
-  border-image: initial;
-  border-color: #667eea;
-  margin: 50px 10px 10px;
-  padding: 24px;
+.sign-container {
+  border: 1px dotted $baseColor;
+  padding: 48px;
   width: 100%;
   max-width: 400px;
-
-  @media screen and (min-width: 48em) {
+  margin: 50px 10px;
+}
+@media screen and (min-width: 48em) {
+  .sign-container {
     padding: 48px;
   }
-
-  @media screen and (min-width: 30em) {
+}
+@media screen and (min-width: 30em) {
+  .sign-container {
     margin-top: 100px;
   }
-`;
-
-export const login_view = css`
+}
+.signup-view {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 100%;
-`;
-
-export const input_box = css`
+}
+.input-box {
   display: flex;
   flex-direction: column;
   gap: 12px;
-`;
-
-export const form_control = css`
+}
+.form-control {
   width: 100%;
   position: relative;
-
   input:focus {
-    border-color: #667eea;
+    border-color: $baseColor;
   }
-
+  input:hover {
+    border-color: $baseColor;
+  }
   input {
     width: 100%;
     height: 30px;
@@ -66,28 +62,46 @@ export const form_control = css`
     color: var(--InterestExistence-colors-brand-main);
     font-size: 16px;
   }
-`;
-
-export const login_bottom = css`
+  input:focus {
+    border-color: $baseColor;
+  }
+}
+.signup-bottom {
   display: flex;
   flex-direction: column;
   gap: 24px;
-`;
-
-export const etc_div = css`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-
   p {
-    display: flex;
-    align-items: first baseline;
+    font-family: Arial, Helvetica, sans-serif;
     gap: 10px;
-    color: #999;
+    color: $lightgray;
   }
-`;
-
-export const etc_sign_button = css`
+}
+.submit-button-div {
+  display: flex;
+  justify-content: flex-start;
+}
+.submit-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  font-family: Ranchers;
+  font-size: 13.5px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $staticWhite;
+  background-color: $baseColor;
+  border: 1px solid transparent;
+  cursor: pointer;
+  width: fit-content;
+  min-width: var(--InterestExistence-sizes-10);
+  height: var(--InterestExistence-sizes-10);
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+.etc-sign-button {
   transition-property: var(--InterestExistence-transition-property-common);
   transition-duration: var(--InterestExistence-transition-duration-fast);
   transition-timing-function: var(
@@ -106,50 +120,4 @@ export const etc_sign_button = css`
   font-weight: var(--InterestExistence-fontWeights-bold);
   line-height: 110%;
   text-transform: uppercase;
-`;
-
-export const submit_button_div = css`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 6px;
-`;
-
-export const submit_button = css`
-  display: inline-flex;
-  appearance: none;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  outline: transparent solid 2px;
-  outline-offset: 2px;
-  line-height: 100%;
-  border-radius: 0px;
-  transition-property: var(--InterestExistence-transition-property-common);
-  transition-duration: var(--InterestExistence-transition-duration-normal);
-  width: fit-content;
-  padding: 8px;
-  font-family: Ranchers;
-  font-size: 13.5px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-  font-stretch: normal;
-  height: var(--InterestExistence-sizes-10);
-  min-width: var(--InterestExistence-sizes-10);
-  padding-inline-start: 1rem;
-  padding-inline-end: 1rem;
-  color: white;
-  background-color: #667eea;
-  border: 1px solid transparent;
-  cursor: pointer;
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-`;
+}

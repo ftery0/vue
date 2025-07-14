@@ -1,17 +1,6 @@
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../../stores/auth.store';
-import {
-  main,
-  sign_container,
-  signup_view,
-  input_box,
-  form_control,
-  signup_bottom,
-  submit_button_div,
-  submit_button,
-  etc_sign_button,
-} from './signUp.style';
 
 export default {
   setup() {
@@ -69,16 +58,6 @@ export default {
       isLoading: authStore.isLoading,
       isPasswordMatch,
       handleRegister,
-      // styles
-      main,
-      sign_container,
-      signup_view,
-      input_box,
-      form_control,
-      signup_bottom,
-      submit_button_div,
-      submit_button,
-      etc_sign_button,
     };
   },
 };

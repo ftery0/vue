@@ -1,17 +1,6 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../../../stores/auth.store';
-import {
-  container,
-  login_view,
-  input_box,
-  form_control,
-  login_bottom,
-  etc_div,
-  etc_sign_button,
-  submit_button_div,
-  submit_button,
-} from './signIn.style';
 
 export default {
   setup() {
@@ -46,16 +35,6 @@ export default {
       errorMessage,
       isLoading: authStore.isLoading,
       handleLogin,
-      // styles
-      container,
-      login_view,
-      input_box,
-      form_control,
-      login_bottom,
-      etc_div,
-      etc_sign_button,
-      submit_button_div,
-      submit_button,
     };
   },
 };

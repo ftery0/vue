@@ -1,10 +1,10 @@
 <template>
-  <div :class="container">
+  <div class="container">
     <form @submit.prevent="handleLogin">
-      <div :class="login_view">
+      <div class="login_view">
         <h2>Singin</h2>
-        <div :class="input_box">
-          <div :class="form_control">
+        <div class="input_box">
+          <div class="form_control">
             <input
               v-model="userId"
               placeholder="Id"
@@ -13,7 +13,7 @@
               required
             />
           </div>
-          <div :class="form_control">
+          <div class="form_control">
             <input
               v-model="password"
               placeholder="Password"
@@ -23,23 +23,23 @@
             />
           </div>
         </div>
-        <div :class="login_bottom">
-          <div :class="submit_button_div">
-            <button type="submit" :class="submit_button" :disabled="isLoading">
+        <div class="login_bottom">
+          <div class="submit_button_div">
+            <button type="submit" class="submit_button" :disabled="isLoading">
               {{ isLoading ? '로그인 중...' : 'login' }}
             </button>
           </div>
-          <div :class="etc_div">
+          <div class="etc_div">
             <p>
               lost your
-              <strong @click="$emit('lostAccount')" :class="etc_sign_button">
+              <strong @click="$emit('lostAccount')" class="etc_sign_button">
                 account?
               </strong>
             </p>
             <p>
               new account?
               <router-link to="/sign-up">
-                <strong :class="etc_sign_button">Sign Up</strong>
+                <strong class="etc_sign_button">Sign Up</strong>
               </router-link>
             </p>
           </div>
