@@ -4,3 +4,5 @@
 </template>
 
 <script lang="ts" src="./home-view.script.ts"></script>
+
+<style lang="scss" src="./home.style.scss"></style>
