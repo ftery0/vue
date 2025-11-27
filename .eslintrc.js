@@ -9,12 +9,12 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   parserOptions: {
-    parser: '@babel/eslint-parser',
-    requireConfigFile: false,
+    ecmaVersion: 2020,
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'vue/multi-word-component-names': 'off',
   },
-  ignorePatterns: ['**/*.ts'], // TypeScript 파일 무시
 };

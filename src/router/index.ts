@@ -25,6 +25,26 @@ const routes = [
     name: 'profile',
     component: ProfileView,
   },
+  {
+    path: '/',
+    name: 'Docs',
+    component: () => import(/* webpackChunkName: "docs" */ '../views/DocsView.vue'),
+  },
+  {
+    path: '/shop',
+    name: 'Shop',
+    component: () => import(/* webpackChunkName: "shop" */ '../views/ShopView.vue'),
+  },
+  {
+    path: '/shop/:id',
+    name: 'ProductDetail',
+    component: () => import(/* webpackChunkName: "product-detail" */ '../views/ProductDetailView.vue'),
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import(/* webpackChunkName: "cart" */ '../views/CartView.vue'),
+  },
 ];
 
 const router = createRouter({
