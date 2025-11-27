@@ -4,6 +4,7 @@ module.exports = defineConfig({
     port: 5000,
   },
   transpileDependencies: true,
+  lintOnSave: false, // ESLint 비활성화
   css: {
     loaderOptions: {
       scss: {
